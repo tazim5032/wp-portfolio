@@ -22,6 +22,7 @@ body {
   top: 0;
   left: 0;
   z-index: 100;
+  opacity: .6;
 }
 
 .navbar .container {
@@ -37,6 +38,32 @@ body {
   width: 50px; /* Adjust size as needed */
   height: auto;
   border-radius: 100%;
+}
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 .nav-links {
@@ -167,7 +194,7 @@ body {
   display: flex;
   justify-content: center; /* Center the flex items */
   flex-wrap: wrap; /* Allow wrapping of items */
-  padding: 20px;
+  padding: 84px;
 }
 
 .project-list {
@@ -274,6 +301,10 @@ textarea:focus {
   text-align: center;
 }
 
+.footer p{
+  color: white;
+}
+
 .footer-content {
   display: flex;
   flex-wrap: wrap;
@@ -331,19 +362,46 @@ textarea:focus {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
+ 
   .navbar .container {
     flex-direction: column; /* Stack logo and links vertically */
     align-items: flex-start; /* Align items to the left */
   }
 
   .nav-links {
-    flex-direction: column; /* Stack links vertically */
-    margin-top: 10px; /* Space above links */
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .nav-links.show {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
   }
 
   .nav-links li {
-    margin-left: 0; /* Remove left margin for vertical alignment */
-    margin-bottom: 10px; /* Add space between links */
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .nav-links li a {
+    padding: 1rem 0;
+    display: block;
+    width: 100%;
+    color: #f0f0f0;
+  }
+
+  .hamburger {
+    display: flex;
   }
 
   .project {
@@ -356,5 +414,21 @@ textarea:focus {
 
   .hero-subtitle {
     font-size: 1.25rem; /* Adjust font size for smaller screens */
+  }
+
+  .hero{
+    padding-top: 500px;
+  }
+  .about{
+    padding-top: 500px;
+  }
+  .skills-section{
+    padding-top: 500px;
+  }
+  .projects{
+    padding-top: 500px;
+  }
+  .contact{
+    padding-top: 500px;
   }
 }
